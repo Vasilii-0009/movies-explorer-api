@@ -71,6 +71,9 @@ function patchUser(req, res, next) {
       return next(new NotFoundError('Пользователь по указанному _id не найден'));
     })
     .catch((err) => {
+      if (err.name === 'MongoServerError') {
+        return next(new DublicatError('Поле email не должно дублироватся '));
+      }
       if (err.name === 'ValidationError') {
         return next(new ValidationError('Поля заполнины не коректно'));
       }

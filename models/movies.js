@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 require('mongoose-type-url');
-const { RegularForLink, RegularForEnLang, RegularForRuLang } = require('../utils/variables');
+const { RegularForLink } = require('../utils/variables');
 
 const moviesScheme = new mongoose.Schema({
   country: {
@@ -65,22 +65,10 @@ const moviesScheme = new mongoose.Schema({
   nameRU: {
     type: String,
     require: true,
-    validate: {
-      validator(v) {
-        return (RegularForRuLang.test(v));
-      },
-      message: 'Название фильма должно быть написано на русском языке',
-    },
   },
   nameEN: {
     type: String,
     require: true,
-    validate: {
-      validator(v) {
-        return (RegularForEnLang.test(v));
-      },
-      message: 'Название фильма должно быть написано на английском языке',
-    },
   },
 });
 
