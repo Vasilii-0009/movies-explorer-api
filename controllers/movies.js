@@ -47,20 +47,14 @@ function createMovies(req, res, next) {
 function getMovies(req, res, next) {
   Movies.find({})
     .then((movies) => {
-      if (movies.length === 0) {
-        return next(new NotFoundError('Нет ни каких фильмов'));
-      }
       const resMovies = movies.filter((car) => {
         const ownerMovies = car.owner.toString();
         const userId = req.user._id.toString();
         const resMoviesFilter = ownerMovies === userId;
         return resMoviesFilter;
       });
-      if (resMovies.length === 0) {
-        return next(new NotFoundError('У вас нет фильмов'));
-      }
-      const result = res.send(resMovies);
-      return result;
+
+      return res.send(resMovies);
     })
     .catch(next);
 }
