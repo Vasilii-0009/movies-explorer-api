@@ -10,7 +10,7 @@ const { requestLogger, errorLogger } = require('./middlewares/logger');
 const { DATA_BASE, PORT } = require('./config');
 
 const app = express();
-app.use(cors());
+app.use('*', cors());
 app.use(helmet());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));

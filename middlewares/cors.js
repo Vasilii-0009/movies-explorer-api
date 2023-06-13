@@ -1,8 +1,8 @@
 const allowedCors = [
-  'http://bekend-mesto-api.nomoredomains.monster',
-  'https://bekend-mesto-api.nomoredomains.monster',
-  'https://bekend-mesto.nomoredomains.monster',
-  'http://bekend-mesto.nomoredomains.monster',
+  'http://api.my-movies.nomoredomains.monster',
+  'https://api.my-movies.nomoredomains.monster',
+  'https://api.my-movies.nomoredomains.monster',
+  'http://api.my-movies.nomoredomains.monster',
   'localhost:3000',
   'localhost:3000',
 ];
